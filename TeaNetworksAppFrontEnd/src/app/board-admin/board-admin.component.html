@@ -1,0 +1,63 @@
+<div class="container" style="align-items: center;">
+  <header class="jumbotron" style="text-align: center;" >
+    <p style="font-size: large;">{{ content }}</p>
+  </header>
+  <br><br>
+  <hr>
+  <div style="text-align: center;">
+    <button type="button" class="btn btn-danger">User Registiration Via Admin Panel</button>
+    <app-register></app-register>
+  </div>  
+
+  <br><br><hr>
+  <div style="text-align: center;">
+    <button type="button" class="btn btn-success">End-Users List</button>
+    <br><br>
+    <div style="text-align: center;">
+      <table >
+        <tr>
+          <th>ID</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Password</th>
+        </tr>
+        <tr *ngFor="let data of endUserList">
+          <td>{{ data.id }}</td>
+          <td>{{ data.username }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.password }}</td>
+        </tr>
+      </table>
+    </div>
+    <br><br><br><br>
+    
+    <h2>Weather Data For Admin</h2>
+    <button (click)="fetchWeatherData()" style="margin-left: 20px;" type="button" class="btn btn-info">Fetch All</button>
+    <button (click)="fetchWeatherDataCondition()" style="margin-left: 20px;" type="button" class="btn btn-danger">Filter According To Condition</button>
+    <input type="text" id="filterVal" [(ngModel)]="filterVal">
+    <button (click)="fetchWeatherDataLocation()" style="margin-left: 20px;" type="button" class="btn btn-success">Filter According To Location</button>
+    <input type="text" id="filterVal" [(ngModel)]="filterVal">
+    <button (click)="fetchWeatherDataAverage()" style="margin-left: 20px;" type="button" class="btn btn-warning">Filter According To Average</button>
+    <input type="text" id="filterVal" [(ngModel)]="filterVal">
+
+    <br><br>
+    <div style="text-align: center;">
+      <table style="margin-left: 340px;">
+        <tr>
+          <th>ID</th>
+          <th>Condition</th>
+          <th>Time Range</th>
+          <th>Location</th>
+          <th>Average</th>
+        </tr>
+        <tr *ngFor="let data of weatherDataList">
+          <td>{{ data.id }}</td>
+          <td>{{ data.condition }}</td>
+          <td>{{ data.timeRange }}</td>
+          <td>{{ data.location }}</td>
+          <td>{{ data.average }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

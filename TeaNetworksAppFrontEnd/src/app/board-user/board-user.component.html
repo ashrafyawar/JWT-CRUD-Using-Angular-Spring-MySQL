@@ -1,0 +1,28 @@
+<div class="container">
+  <header class="jumbotron" style="text-align: center;" >
+    <p>{{ content }}</p>
+  </header>
+
+  <div style="text-align: center;">
+    <button type="button" class="btn btn-success">Weather Data For User</button>
+    <br><br>
+    <div style="text-align: center;">
+      <table style="margin-left: 340px;">
+        <tr>
+          <th>ID</th>
+          <th>Condition</th>
+          <th>Time Range</th>
+          <th>Location</th>
+          <th>Average</th>
+        </tr>
+        <tr *ngFor="let data of weatherDataList">
+          <td>{{ data.id }}</td>
+          <td>{{ data.condition }}</td>
+          <td>{{ data.timeRange }}</td>
+          <td>{{ data.location }}</td>
+          <td>{{ data.average }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
